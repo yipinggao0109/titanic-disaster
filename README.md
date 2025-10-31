@@ -112,7 +112,6 @@ Generated predictions for 418 passengers.
 Saved predictions to: /app/src/titanic_model/../data/predictions.csv
 
 Titanic model execution completed successfully.
-
 ```
 
 After completion, check:
@@ -137,16 +136,61 @@ docker run --rm -v "$PWD/src/data:/app/src/data" titanic-r-app
 ### Expected Output
 ```
 Starting Titanic model training and evaluation in R...
+Looking for training file at: src/data/train.csv 
+Looking for test file at: src/data/test.csv 
+Rows: 891 Columns: 12
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (5): Name, Sex, Ticket, Cabin, Embarked
+dbl (7): PassengerId, Survived, Pclass, Age, SibSp, Parch, Fare
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 418 Columns: 11
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (5): Name, Sex, Ticket, Cabin, Embarked
+dbl (6): PassengerId, Pclass, Age, SibSp, Parch, Fare
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 Successfully loaded train.csv and test.csv
+Train shape: 891 rows, 12 columns
+Test shape: 418 rows, 11 columns
+
+=== Basic Info ===
+ [1] "PassengerId" "Survived"    "Pclass"      "Name"        "Sex"        
+ [6] "Age"         "SibSp"       "Parch"       "Ticket"      "Fare"       
+[11] "Cabin"       "Embarked"   
+
+=== Missing Values ===
+PassengerId    Survived      Pclass        Name         Sex         Age 
+          0           0           0           0           0         177 
+      SibSp       Parch      Ticket        Fare       Cabin    Embarked 
+          0           0           0           0         687           2 
+
 === Cleaning Data ===
 Filled missing values for Age, Embarked, and Fare.
+
+=== Encoding categorical variables ===
+train_df encoding completed.
+test_df encoding completed.
+Dropped columns: Name, Ticket, Cabin 
+Shape after cleaning: Train 10 columns; Test 9 columns
+
+=== Preparing data for model training ===
+Training features shape: 9 
+Training samples: 713 , Validation samples: 178 
+
 === Training Logistic Regression Model ===
 Model training completed.
-Training Accuracy: 0.8112
-Validation Accuracy: 0.7894
+Training Accuracy: 0.8079 
+Validation Accuracy: 0.7584 
+
 === Predicting on Test Set ===
 Generated predictions for 418 passengers.
 Saved predictions to: src/data/predictions_r.csv
+
 Titanic R model execution completed successfully.
 ```
 
