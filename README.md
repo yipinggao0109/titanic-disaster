@@ -55,15 +55,64 @@ docker run --rm -v "$PWD/src/data:/app/src/data" titanic-app
 ### Expected Output
 ```
 Starting Titanic model training and evaluation...
+Looking for training file at: /app/src/titanic_model/../data/train.csv
+Looking for test file at: /app/src/titanic_model/../data/test.csv
 Successfully loaded train.csv and test.csv
+Train shape: (891, 12), Test shape: (418, 11)
+
+=== Basic Info ===
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 891 entries, 0 to 890
+Data columns (total 12 columns):
+ #   Column       Non-Null Count  Dtype  
+---  ------       --------------  -----  
+ 0   PassengerId  891 non-null    int64  
+ 1   Survived     891 non-null    int64  
+ 2   Pclass       891 non-null    int64  
+ 3   Name         891 non-null    object 
+ 4   Sex          891 non-null    object 
+ 5   Age          714 non-null    float64
+ 6   SibSp        891 non-null    int64  
+ 7   Parch        891 non-null    int64  
+ 8   Ticket       891 non-null    object 
+ 9   Fare         891 non-null    float64
+ 10  Cabin        204 non-null    object 
+ 11  Embarked     889 non-null    object 
+dtypes: float64(2), int64(5), object(5)
+memory usage: 83.7+ KB
+None
+
+=== Missing Values ===
+Cabin          687
+Age            177
+Embarked         2
+PassengerId      0
+Survived         0
+dtype: int64
+
 === Cleaning Data ===
+Filled missing values for Age, Embarked, and Fare.
+
+=== Encoding categorical variables ===
+train_df encoding completed.
+test_df encoding completed.
+Dropped columns: ['Name', 'Ticket', 'Cabin']
+Shape after cleaning: Train (891, 10), Test (418, 9)
+
+=== Preparing data for model training ===
+Training samples: 712, Validation samples: 179
+
 === Training Logistic Regression Model ===
-Training Accuracy: 0.8123
-Validation Accuracy: 0.7891
+Model training completed.
+Training Accuracy: 0.8076
+Validation Accuracy: 0.8045
+
 === Predicting on Test Set ===
 Generated predictions for 418 passengers.
-Saved predictions to: src/data/predictions.csv
+Saved predictions to: /app/src/titanic_model/../data/predictions.csv
+
 Titanic model execution completed successfully.
+
 ```
 
 After completion, check:
