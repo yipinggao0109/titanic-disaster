@@ -1,8 +1,7 @@
 # titanic-disaster
 Homework 3 for Northwestern MLDS400 - Titanic survival prediction using Docker
 
-This project builds two environments — one in **Python** and one in **R** — to train and evaluate logistic regression models on the **Titanic dataset**.  
-It demonstrates reproducible machine learning workflows using **Docker**, ensuring the grader can run everything from scratch with only a few simple commands.
+This project builds two environments: one in **Python** and one in **R**, to train and evaluate logistic regression models on the **Titanic dataset**.  
 
 ## Repository Structure
 
@@ -15,8 +14,6 @@ titanic-disaster/
 │   ├── data/                      ← Dataset folder (not tracked by Git)
 │   │   ├── train.csv
 │   │   ├── test.csv
-│   │   ├── predictions.csv
-│   │   └── predictions_r.csv
 │   ├── titanic_model/             ← Python model
 │   │   └── titanic_main.py
 │   └── titanic_R/                 ← R model
