@@ -1,0 +1,19 @@
+# Data and output files
+src/data/
+*.csv
+*.pkl
+*.joblib
+*.parquet
+
+# Python cache
+__pycache__/
+.ipynb_checkpoints/
+
+# Environment files
+.venv/
+env/
+.vscode/
+.idea/
+
+# System
+.DS_Store
