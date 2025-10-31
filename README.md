@@ -142,7 +142,7 @@ docker system prune -f
 
 ## Author
 
-**Jennifer Li**  
+**Yiping Gao**  
 Master of Science in Machine Learning & Data Science  
 Northwestern University  
 """
