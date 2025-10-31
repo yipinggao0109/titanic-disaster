@@ -12,6 +12,9 @@ __pycache__/
 # Environment files
 .venv/
 env/
+titanic-env/
+.conda/
+environment.yml
 .vscode/
 .idea/
 
